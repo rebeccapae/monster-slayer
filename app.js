@@ -9,10 +9,6 @@ new Vue({
        startGame: function() {
             console.log("starting game")
             this.newGame = false
-       },
-       myHealthPercent: function() {
-            console.log(this.myHealth)
-            return this.myHealth
        }
 
     },
