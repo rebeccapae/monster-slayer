@@ -45,10 +45,18 @@
     :class="{hide: newGame}"
     >
         <div class="small-12 columns">
-            <button id="attack">ATTACK</button>
-            <button id="special-attack">SPECIAL ATTACK</button>
-            <button id="heal">HEAL</button>
-            <button id="give-up">GIVE UP</button>
+            <button id="attack"
+            @click="attack">
+            ATTACK</button>
+            <button id="special-attack"
+            @click="specialAttack"
+            >SPECIAL ATTACK</button>
+            <button id="heal"
+            @click = "heal"
+            >HEAL</button>
+            <button id="give-up"
+            @click="giveUp"
+            >GIVE UP</button>
         </div>
     </section>
     <section class="row log"
@@ -56,8 +64,13 @@
     >
         <div class="small-12 columns">
             <ul>
-                <li>
-
+                <li v-for="event in myLog">
+                <div style="background-color: lightcoral">
+                    Player {{ event.myStyle }}  for {{ event.myValue}}
+                </div>
+                <div style="background-color: lightblue">
+                    Monster {{ event.monsterStyle }} for {{ event.monsterValue}}
+                </div>
                 </li>
             </ul>
         </div>
