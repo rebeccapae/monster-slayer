@@ -20,6 +20,7 @@ new Vue({
            console.log("monster attack: " + monsterAttack)
            this.myLog.push({ myStyle: "hits monster ", monsterStyle: "hits player ", myValue: myAttack, monsterValue: monsterAttack})
            console.log(this.myLog)
+           this.checkStatus;
        },
        giveUp: function() {
            console.log("gave up")
@@ -34,6 +35,7 @@ new Vue({
            let monsterAttack = Math.floor(Math.random() * 10) + 1;
            this.myHealth = this.myHealth + myHeal - monsterAttack;
            this.myLog.push({ myStyle: "heals himself ", monsterStyle: "hits player ", myValue: myHeal, monsterValue: monsterAttack})
+           this.checkStatus;
        },
        specialAttack: function() {
            console.log("special attack")
@@ -42,9 +44,21 @@ new Vue({
            this.myHealth = this.myHealth - monsterSpecial;
            this.monsterHealth = this.monsterHealth - mySpecial;
            this.myLog.push({ myStyle: "special attacks monster ", monsterStyle: "special attacks player ", myValue: mySpecial, monsterValue: monsterSpecial})
+           this.checkStatus;
        }
     },
     computed: {
-
+        checkStatus: function() {
+            if (this.myHealth <= 0) {
+                this.giveUp()
+                alert("You have lost the game")
+                
+            }
+            else if (this.monsterHealth <= 0) {
+                this.giveUp()
+                alert("You won!")
+                
+            }
+        }
     }
 })

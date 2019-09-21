@@ -32,8 +32,7 @@
         </div>
     </section>
     <section class="row controls"
-    :class="{show: newGame, hide: !newGame}"
-    >
+    v-show="newGame">
         <div class="small-12 columns">
             <button id="start-game"
             @click="startGame"
@@ -42,8 +41,7 @@
         </div>
     </section>
     <section class="row controls"
-    :class="{hide: newGame}"
-    >
+    v-show="!newGame">
         <div class="small-12 columns">
             <button id="attack"
             @click="attack">
@@ -60,7 +58,7 @@
         </div>
     </section>
     <section class="row log"
-    :class="{hide: newGame}"
+    v-show="!newGame"
     >
         <div class="small-12 columns">
             <ul>
